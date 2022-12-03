@@ -1,0 +1,47 @@
+server:
+  port: 8080
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: cat-store
+
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+
+
+---
+spring:
+  profiles: dev
+  #redis:
+  #  host: r-2zeba44e6cea0984.redis.rds.aliyuncs.com
+  #  port: 6379
+  #  password: Inch882-does-no-
+  #  database: 26
+  #data:
+  #  mongodb:
+  #    uri: mongodb://u:Realize318^wedge@dds-2zea3dd9e14f35341.mongodb.rds.aliyuncs.com:3717,dds-2zea3dd9e14f35342.mongodb.rds.aliyuncs.com:3717/map_uat?replicaSet=mgset-6012687
+  datasource:
+    druid:
+      db:
+        url: jdbc:mysql://localhost:3306/cat_store?autoReconnect=true&autoReconnectForPools=true&useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull
+        username: root
+        password: root
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        initial-size: 3
+        min-idle: 3
+        maxActive: 30
+        maxWait: 60000
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: select 'x'
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: false
+        maxPoolPreparedStatementPerConnectionSize: 20
+        filters: stat,wall,slf4j
+        connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+
