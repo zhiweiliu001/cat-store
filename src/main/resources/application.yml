@@ -27,7 +27,7 @@ spring:
       db:
         url: jdbc:mysql://localhost:3306/cat_store?autoReconnect=true&autoReconnectForPools=true&useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull
         username: root
-        password: root
+        password: 123456
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.cj.jdbc.Driver
         initial-size: 3
